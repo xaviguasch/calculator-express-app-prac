@@ -7,11 +7,17 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.get('/', function (req, res) {
+
     res.sendFile(`${__dirname}/index.html`);
 })
 
 app.post('/', function (req, res) {
-    res.send('thanks for posting that')
+    const num1 = Number(req.body.num1)
+    const num2 = Number(req.body.num2)
+
+    const result = num1 + num2
+
+    res.send(`The result is: ${result}`)
 })
 
 
